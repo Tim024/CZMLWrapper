@@ -6,8 +6,8 @@ from .CZMLElement import CZMLElement
 class CZMLPolygon(CZMLElement):
     name = "polygon"
 
-    def __init__(self):
-        super(CZMLPolygon, self).__init__()
+    def __init__(self, **kwargs):
+        super(CZMLPolygon, self).__init__(**kwargs)
         self.parameters += [
             {"key": "perPositionHeight",
              "type": "boolean",
@@ -22,6 +22,6 @@ class CZMLPolygon(CZMLElement):
         self._dict = {
             "perPositionHeight": perPositionHeight,
         }
-        self._dict.update(CZMLMaterial().dict(**kwargs))
-        self._dict.update(CZMLPositions().dict(**kwargs))
+        self._dict.update(CZMLMaterial(**kwargs).data)
+        self._dict.update(CZMLPositions(**kwargs).data)
 

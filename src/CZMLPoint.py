@@ -6,8 +6,8 @@ from .CZMLShow import CZMLShow
 class CZMLPoint(CZMLElement):
     name = "point"
 
-    def __init__(self):
-        super(CZMLPoint, self).__init__()
+    def __init__(self, **kwargs):
+        super(CZMLPoint, self).__init__(**kwargs)
         self.parameters += [
             {"key": "rgbaf",
              "type": "list[3]",
@@ -29,5 +29,5 @@ class CZMLPoint(CZMLElement):
             },
             "pixelSize": pixelSize,
         }
-        self._dict.update(CZMLShow().dict(**kwargs))
+        self._dict.update(CZMLShow(**kwargs).data)
 

@@ -13,8 +13,8 @@ from .utils import name_to_id
 
 
 class CZMLPacket(CZMLElement):
-    def __init__(self):
-        super(CZMLPacket, self).__init__()
+    def __init__(self, **kwargs):
+        super(CZMLPacket, self).__init__(**kwargs)
         self.parameters += [
             {"key": "name",
              "type": "str",
@@ -45,13 +45,12 @@ class CZMLPacket(CZMLElement):
             "name": name,
             "availability": format_interval(ts, te),
         }
-        self._dict.update(CZMLPolyline().dict(**kwargs))
-        self._dict.update(CZMLPath().dict(**kwargs))
-        self._dict.update(CZMLPosition().dict(**kwargs))
-        self._dict.update(CZML3DModel().dict(**kwargs))
-        self._dict.update(CZMLOrientation().dict(**kwargs))
-        self._dict.update(CZMLBillboard().dict(**kwargs))
-        self._dict.update(CZMLPoint().dict(**kwargs))
-        self._dict.update(CZMLLabel().dict(**kwargs))
-        self._dict.update(CZMLPolygon().dict(**kwargs))
-
+        self._dict.update(CZMLPolyline(**kwargs).data)
+        self._dict.update(CZMLPath(**kwargs).data)
+        self._dict.update(CZMLPosition(**kwargs).data)
+        self._dict.update(CZML3DModel(**kwargs).data)
+        self._dict.update(CZMLOrientation(**kwargs).data)
+        self._dict.update(CZMLBillboard(**kwargs).data)
+        self._dict.update(CZMLPoint(**kwargs).data)
+        self._dict.update(CZMLLabel(**kwargs).data)
+        self._dict.update(CZMLPolygon(**kwargs).data)

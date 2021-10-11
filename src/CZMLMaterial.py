@@ -4,8 +4,8 @@ from .CZMLElement import CZMLElement
 class CZMLMaterial(CZMLElement):
     name = "material"
 
-    def __init__(self):
-        super(CZMLMaterial, self).__init__()
+    def __init__(self, **kwargs):
+        super(CZMLMaterial, self).__init__(**kwargs)
         self.parameters += [
             {"key": "color_rgbaf",
              "type": "array[3]",

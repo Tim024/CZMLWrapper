@@ -5,8 +5,8 @@ from .exceptions import InputException
 class CZMLOrientation(CZMLElement):
     name = "orientation"
 
-    def __init__(self):
-        super(CZMLOrientation, self).__init__()
+    def __init__(self, **kwargs):
+        super(CZMLOrientation, self).__init__(**kwargs)
         self.parameters += [
             {"key": "onVelocity",
              "type": "bool",

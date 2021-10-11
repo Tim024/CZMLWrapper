@@ -7,8 +7,8 @@ from .CZMLShow import CZMLShow
 class CZMLPolyline(CZMLElement):
     name = "polyline"
 
-    def __init__(self):
-        super(CZMLPolyline, self).__init__()
+    def __init__(self, **kwargs):
+        super(CZMLPolyline, self).__init__(**kwargs)
         self.parameters += [
             {"key": "arcType",
              "type": "str",
@@ -36,7 +36,7 @@ class CZMLPolyline(CZMLElement):
             "arcType": ac,
             "width": w,
         }
-        self._dict.update(CZMLMaterial().dict(**kwargs))
-        self._dict.update(CZMLShow().dict(**kwargs))
-        self._dict.update(CZMLPositions().dict(**kwargs))
+        self._dict.update(CZMLMaterial(**kwargs).data)
+        self._dict.update(CZMLShow(**kwargs).data)
+        self._dict.update(CZMLPositions(**kwargs).data)
 

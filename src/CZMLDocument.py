@@ -5,8 +5,8 @@ import json
 
 class CZMLDocument(CZMLElement):
 
-    def __init__(self):
-        super(CZMLDocument, self).__init__()
+    def __init__(self, **kwargs):
+        super(CZMLDocument, self).__init__(**kwargs)
         self.parameters += [
             {"key": "name",
              "type": "str",
@@ -41,5 +41,3 @@ class CZMLDocument(CZMLElement):
             }
         }] + packets
 
-    def export(self, **kwargs):
-        return json.dumps(self.dict(**kwargs))

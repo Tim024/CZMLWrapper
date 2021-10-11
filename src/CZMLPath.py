@@ -4,8 +4,8 @@ from .CZMLMaterial import CZMLMaterial
 class CZMLPath(CZMLElement):
     name = "path"
 
-    def __init__(self):
-        super(CZMLPath, self).__init__()
+    def __init__(self, **kwargs):
+        super(CZMLPath, self).__init__(**kwargs)
         self.parameters += [
             {"key": "leadTime",
              "type": "int",
@@ -34,4 +34,4 @@ class CZMLPath(CZMLElement):
             "trailTime": trailTime,
         }
 
-        self._dict.update(CZMLMaterial().dict(**kwargs))
+        self._dict.update(CZMLMaterial(**kwargs).data)

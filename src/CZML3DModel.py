@@ -5,8 +5,8 @@ from .CZMLElement import CZMLElement
 class CZML3DModel(CZMLElement):
     name = "model"
 
-    def __init__(self):
-        super(CZML3DModel, self).__init__()
+    def __init__(self, **kwargs):
+        super(CZML3DModel, self).__init__(**kwargs)
         self.parameters += [
             {"key": "gltf",
              "type": "str",
@@ -31,4 +31,4 @@ class CZML3DModel(CZMLElement):
             "scale": scale,
             "minimumPixelSize": minimumPixelSize,
         }
-        self._dict.update(CZMLShow().dict(**kwargs))
+        self._dict.update(CZMLShow(**kwargs).data)

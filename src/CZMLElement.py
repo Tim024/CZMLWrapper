@@ -1,4 +1,5 @@
 from .utils import check_equal
+import json
 
 
 class CZMLHelper:
@@ -25,7 +26,7 @@ class CZMLHelper:
 class CZMLElement:
     name = ""
 
-    def __init__(self):
+    def __init__(self, **kwargs):
         self.parameters = []
         if self.name != "":
             self.parameters += [
@@ -34,6 +35,7 @@ class CZMLElement:
                  "help": f"Set {self.name} to True to enable {self.name} definition."}
             ]
         self._dict = {}
+        self._dict = self.dict(**kwargs)
 
     def helper(self, prefix=""):
         prefix = None if prefix == "" else prefix
@@ -59,3 +61,11 @@ class CZMLElement:
         if self.name != "" and self._dict != {}:
             return {self.name: self._dict}
         return self._dict
+
+    @property
+    def data(self):
+        return self._dict
+
+    @property
+    def czml(self):
+        return json.dumps(self._dict, indent=2)

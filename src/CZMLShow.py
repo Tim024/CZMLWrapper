@@ -7,8 +7,8 @@ from .utils import format_interval
 class CZMLShow(CZMLElement):
     name = "show"
 
-    def __init__(self):
-        super(CZMLShow, self).__init__()
+    def __init__(self, **kwargs):
+        super(CZMLShow, self).__init__(**kwargs)
         self.parameters += [
             {"key": "intervals",
              "mandatory": True,

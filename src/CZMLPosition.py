@@ -6,8 +6,8 @@ from .utils import format_date, name_to_id, check_equal
 class CZMLPosition(CZMLElement):
     name = "position"
 
-    def __init__(self):
-        super(CZMLPosition, self).__init__()
+    def __init__(self, **kwargs):
+        super(CZMLPosition, self).__init__(**kwargs)
         self.parameters += [
             {"key": "interpolation.",
              "type": "boolean",
@@ -21,7 +21,7 @@ class CZMLPosition(CZMLElement):
              "exclude": "reference, cartographicDegrees"},
             {"key": "cartographicDegrees",
              "type": "list[list[3]]",
-             "help": "List of positions in x,y,z lon,lat,height in deg,deg,meters.",
+             "help": "List of positions in lon,lat,height in deg,deg,meters.",
              "exclude": "cartesian, reference"},
             {"key": "reference",
              "type": "list[str]",
@@ -79,8 +79,8 @@ class CZMLPosition(CZMLElement):
 class CZMLPositions(CZMLElement):
     name = "positions"
 
-    def __init__(self):
-        super(CZMLPositions, self).__init__()
+    def __init__(self, **kwargs):
+        super(CZMLPositions, self).__init__(**kwargs)
         self.parameters += [
             {"key": "cartesian",
              "type": "list[array[3]]",

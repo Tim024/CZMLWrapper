@@ -5,8 +5,8 @@ from .CZMLShow import CZMLShow
 class CZMLLabel(CZMLElement):
     name = "label"
 
-    def __init__(self):
-        super(CZMLLabel, self).__init__()
+    def __init__(self,**kwargs):
+        super(CZMLLabel, self).__init__(**kwargs)
         self.parameters = [
             {"key": "font",
              "type": "str",
@@ -97,5 +97,5 @@ class CZMLLabel(CZMLElement):
             # "pixelOffset": pixelOffset,
             # "eyeOffset": eyeOffset
         }
-        self._dict.update(CZMLShow().dict(**kwargs))
+        self._dict.update(CZMLShow(**kwargs).data)
 
