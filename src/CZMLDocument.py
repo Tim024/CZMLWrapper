@@ -26,7 +26,7 @@ class CZMLDocument(CZMLElement):
         name = kwargs["name"]
         self.export_name = name
         ts, te = kwargs["interval"]
-        packets = kwargs["packets"]
+        packets = [p.data if isinstance(p, CZMLElement) else p for p in kwargs["packets"]]
 
         self._dict = [{
             "id": "document",
@@ -41,3 +41,6 @@ class CZMLDocument(CZMLElement):
             }
         }] + packets
 
+    def save(self, filepath: str):
+        with open(filepath, "w") as fp:
+            json.dump(self._dict, fp)

@@ -67,5 +67,5 @@ class CZMLElement:
         return self._dict
 
     @property
-    def czml(self):
-        return json.dumps(self._dict, indent=2)
+    def __str__(self):
+        return json.dumps(self._dict)

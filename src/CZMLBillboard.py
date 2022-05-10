@@ -16,7 +16,6 @@ class CZMLBillboard(CZMLElement):
         ]
 
     def _build_dict(self, **kwargs):
-        print(kwargs)
         image = "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADJSURBVDhPnZHRDcMgEEMZjVEYpaNklIzSEfLfD4qNnXAJSFWfhO7w2Zc0Tf9QG2rXrEzSUeZLOGm47WoH95x3Hl3jEgilvDgsOQUTqsNl68ezEwn1vae6lceSEEYvvWNT/Rxc4CXQNGadho1NXoJ+9iaqc2xi2xbt23PJCDIB6TQjOC6Bho/sDy3fBQT8PrVhibU7yBFcEPaRxOoeTwbwByCOYf9VGp1BYI1BA+EeHhmfzKbBoJEQwn1yzUZtyspIQUha85MpkNIXB7GizqDEECsAAAAASUVORK5CYII="
         if "image" in kwargs.keys():
             image = kwargs["image"]
@@ -40,4 +39,3 @@ class CZMLBillboard(CZMLElement):
             "verticalOrigin": "CENTER",
             "show": True
         }
-        print("dict updated ",self._dict)

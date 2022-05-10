@@ -1,4 +1,3 @@
-from cesium.wrapper2 import format_interval
 from .CZML3DModel import CZML3DModel
 from .CZMLBillboard import CZMLBillboard
 from .CZMLElement import CZMLElement
@@ -9,7 +8,7 @@ from .CZMLPoint import CZMLPoint
 from .CZMLPolygon import CZMLPolygon
 from .CZMLPolyline import CZMLPolyline
 from .CZMLPosition import CZMLPosition
-from .utils import name_to_id
+from .utils import name_to_id, format_interval
 
 
 class CZMLPacket(CZMLElement):
