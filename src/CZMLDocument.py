@@ -43,4 +43,4 @@ class CZMLDocument(CZMLElement):
 
     def save(self, filepath: str):
         with open(filepath, "w") as fp:
-            json.dump(self._dict, fp)
+            json.dump(self._dict, fp, indent=2)

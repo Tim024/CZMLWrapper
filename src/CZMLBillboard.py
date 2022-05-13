@@ -1,4 +1,5 @@
 from .CZMLElement import CZMLElement
+from .CZMLShow import CZMLShow
 
 
 class CZMLBillboard(CZMLElement):
@@ -12,7 +13,8 @@ class CZMLBillboard(CZMLElement):
              "help": "Base 64 string of the image (PNG format). By default outputs a little satellite."},
             {"key":"scale",
              "type":"float",
-             "help":"Scale of the image. Defaults to 1."}
+             "help":"Scale of the image. Defaults to 1."},
+            CZMLShow()
         ]
 
     def _build_dict(self, **kwargs):
@@ -39,3 +41,4 @@ class CZMLBillboard(CZMLElement):
             "verticalOrigin": "CENTER",
             "show": True
         }
+        self._dict.update(CZMLShow(**kwargs).data)

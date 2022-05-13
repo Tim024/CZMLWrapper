@@ -8,7 +8,7 @@ class CZMLMaterial(CZMLElement):
         super(CZMLMaterial, self).__init__(**kwargs)
         self.parameters += [
             {"key": "color_rgbaf",
-             "type": "array[3]",
+             "type": "array[4]",
              "help": "Color of the material."}
         ]
 

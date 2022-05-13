@@ -55,4 +55,4 @@ doc = CZMLDocument(
     packets=[ground_station, satellite, link]
 )
 
-doc.save("../common/czml/current.czml")
+doc.save("file.czml")
