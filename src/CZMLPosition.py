@@ -76,26 +76,5 @@ class CZMLPosition(CZMLElement):
             else:
                 self._dict.update({"cartographicDegrees": kwargs["cartographicDegrees"]})
 
-class CZMLPositions(CZMLElement):
-    name = "positions"
-
-    def __init__(self, **kwargs):
-        super(CZMLPositions, self).__init__(**kwargs)
-        self.parameters += [
-            {"key": "cartesian",
-             "type": "list[array[3]]",
-             "help": "List of positions in x,y,z coordinates in meters.",
-             "exclude": "reference"},
-            {"key": "reference",
-             "type": "list[str]",
-             "help": "List of names of objects.",
-             "exclude": "cartesian"},
-        ]
-
-    def _build_dict(self, **kwargs):
-        if "cartesian" in kwargs.keys():
-            self._dict.update({"cartesian": kwargs["cartesian"]})
-        elif "reference" in kwargs.keys():
-            self._dict.update({"references": [name_to_id(p) + "#position" for p in kwargs["reference"]]})
 
 

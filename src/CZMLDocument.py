@@ -28,6 +28,10 @@ class CZMLDocument(CZMLElement):
         ts, te = kwargs["interval"]
         packets = [p.data if isinstance(p, CZMLElement) else p for p in kwargs["packets"]]
 
+        # Check if all packets have different IDs
+        all_ids = [p["id"] for p in packets]
+        assert len(all_ids) == len(set(all_ids)), "All packets must have different IDs."
+
         self._dict = [{
             "id": "document",
             "name": name,

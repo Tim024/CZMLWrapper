@@ -1,6 +1,6 @@
 from .CZMLElement import CZMLElement
 from .CZMLMaterial import CZMLMaterial
-from .CZMLPosition import CZMLPositions
+from .CZMLPositions import CZMLPositions
 from .CZMLShow import CZMLShow
 
 

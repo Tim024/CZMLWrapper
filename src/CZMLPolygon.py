@@ -1,6 +1,7 @@
 from .CZMLMaterial import CZMLMaterial
-from .CZMLPosition import CZMLPositions
+from .CZMLPositions import CZMLPositions
 from .CZMLElement import CZMLElement
+from .CZMLShow import CZMLShow
 
 
 class CZMLPolygon(CZMLElement):
@@ -11,9 +12,10 @@ class CZMLPolygon(CZMLElement):
         self.parameters += [
             {"key": "perPositionHeight",
              "type": "boolean",
-             "help": "Defines if we consider the height position."},
+             "help": "Defines if we consider the height position. Defaults to True."},
             CZMLPositions(),
             CZMLMaterial(),
+            CZMLShow()
         ]
 
     def _build_dict(self, **kwargs):
@@ -24,4 +26,5 @@ class CZMLPolygon(CZMLElement):
         }
         self._dict.update(CZMLMaterial(**kwargs).data)
         self._dict.update(CZMLPositions(**kwargs).data)
+        self._dict.update(CZMLShow(**kwargs).data)
 
