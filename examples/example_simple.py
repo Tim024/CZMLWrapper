@@ -115,4 +115,4 @@ doc = CZMLDocument(
     ],
 )
 
-doc.save("czml.json")  # Must keep this name for the html file to work
+doc.save("czml.json") 
