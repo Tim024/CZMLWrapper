@@ -8,6 +8,7 @@ from .CZMLPoint import CZMLPoint
 from .CZMLPolygon import CZMLPolygon
 from .CZMLPolyline import CZMLPolyline
 from .CZMLPosition import CZMLPosition
+from .CZMLCylinder import CZMLCylinder
 from .utils import name_to_id, format_interval
 
 
@@ -18,7 +19,7 @@ class CZMLPacket(CZMLElement):
             {"key": "name",
              "type": "str",
              "mandatory": True,
-             "help": "Reference name of the satellite."},
+             "help": "Reference name of the object."},
             {"key": "availability",
              "mandatory": True,
              "type": "tuple(datetime, datetime)",
@@ -32,6 +33,7 @@ class CZMLPacket(CZMLElement):
             CZMLPoint(),
             CZMLLabel(),
             CZMLPolygon(),
+            CZMLCylinder(),
         ]
 
     def _build_dict(self, **kwargs):
@@ -53,3 +55,4 @@ class CZMLPacket(CZMLElement):
         self._dict.update(CZMLPoint(**kwargs).data)
         self._dict.update(CZMLLabel(**kwargs).data)
         self._dict.update(CZMLPolygon(**kwargs).data)
+        self._dict.update(CZMLCylinder(**kwargs).data)
